@@ -1,0 +1,7 @@
+torch>=1.10.0
+gym>=0.21.0
+numpy
+matplotlib
+torchvision
+torchinfo
+Pillow
