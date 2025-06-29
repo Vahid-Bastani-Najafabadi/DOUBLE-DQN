@@ -27,13 +27,35 @@ A complete end‐to‐end project demonstrating how to apply a Double Deep Q-Net
    - After training, plots of per-episode rewards and 100-episode moving average.  
    - Histogram of steps to success under greedy policy.
 
+## 🖼️ Environment Overview
+
+The `SkullTrophyRLEnv` presents the agent with greyscale 84×84 images of tracheal‐breathing patterns.  
+Each episode starts in one of **17 discrete states** representing different phases/positions, and the agent chooses among **6 actions** to maximize reward:
+
+Here’s a representative observation from the `SkullTrophyRLEnv` environment:
+
+<p align="center">
+  <img width="200" src="assets/sample_env.png" alt="Sample SkullTrophy Observation">
+</p>
+
+*Figure: Sample 84×84 input image showing the envrionment and current state.*
+
+- **Hex grid** with 19 possible positions.  
+- **Blue trophy** marks the goal state.  
+- **Black skulls** are traps that incur negative reward.  
+- **Green pawn** is the agent’s current position.  
+- **Empty circles** are safe, unvisited states.
+
+The agent must navigate from its starting position (green pawn) to the trophy (blue) while avoiding traps (black). 
 ---
 
 ## 📂 Repository Structure
+
 double-dqn/
-├── main.py # Single‐file training + evaluation script
-├── requirements.txt # Third‐party dependencies
+├── main.py # Single-file training & evaluation script
+├── requirements.txt # Third-party dependencies
 ├── .gitignore # Files/folders excluded from Git
+├── LICENSE # MIT license
 └── RLSkullTrophy/ # Custom environment package
 ├── init.py
 └── core.py # SkullTrophyRLEnv class & environment logic
@@ -114,7 +136,10 @@ All hyperparameters can be modified directly in main.py.
 • Environment enhancements: augment observations, refine reward shaping.
 
 ## 📦 Dependencies
-Listed in requirements.txt:
+
+All required packages are listed in `requirements.txt`:
+
+```text
 torch>=1.10.0
 gym>=0.21.0
 numpy
